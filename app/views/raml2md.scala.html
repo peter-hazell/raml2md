@@ -1,0 +1,37 @@
+@import helper._
+
+@(ramlForm: Form[String], mdResult: Option[Raml2MdResult])(implicit request: RequestHeader)
+
+@main("Pete Hazell - raml2md") {
+    <div class="page-header">
+        <h1>raml2md</h1>
+    </div>
+
+    @form(action = routes.Raml2MdController.submit()) {
+        @CSRF.formField
+
+        <div class="form-group">
+            <label for="raml-text-area">Paste your RAML:</label>
+            <textarea class="form-control rounded-0" id="raml-text-area" name="ramlContents" rows="10"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Convert to markdown</button>
+
+        @for(m <- mdResult) {
+            @m match {
+                case Raml2MdSuccess(s) => {
+                    <div class="col"><hr></div>
+                    <p><strong>Output:</strong></p>
+                    <pre>@s</pre>
+                }
+                case Raml2MdFailure(f) => {
+                    <p></p>
+                    <div class="alert alert-danger" role="alert">
+                        <strong>Failed to convert RAML to markdown, the supplied RAML could be invalid.</strong>
+                    </div>
+                }
+            }
+            </div>
+        }
+    }
+}
