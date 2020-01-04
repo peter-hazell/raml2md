@@ -3,7 +3,7 @@
 @(ramlForm: Form[String], mdResult: Option[Raml2MdResult], mdHtml: Option[String])(implicit request: RequestHeader)
 
 @main("Pete Hazell - raml2md") {
-    <div class="page-header">
+    <div class="pb-2 mt-4 mb-2 border-bottom">
         <h1>raml2md</h1>
     </div>
 
@@ -20,7 +20,7 @@
         @for(m <- mdResult) {
             @m match {
                 case Raml2MdSuccess(s) => {
-                    <div class="col"><hr></div>
+                    <p></p>
                     <table class="table">
                         <thead>
                             <tr>
@@ -31,7 +31,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <pre>@s</pre>
+                                    <pre><code>@s</code></pre>
                                 </td>
 
                                 <td>
