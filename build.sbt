@@ -18,6 +18,7 @@ lazy val root = (project in file("."))
       "org.mockito" % "mockito-all" % "1.10.19",
       "org.raml" % "webapi-parser" % "0.2.0",
       "com.kotcrab.remark" % "remark" % "1.0.0",
-      guice
+      guice,
+      ws
     )
   )
