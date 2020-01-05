@@ -21,30 +21,37 @@
             @m match {
                 case Raml2MdSuccess(s) => {
                     <p></p>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Output</th>
-                                <th scope="col">HTML preview</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <pre><code>@s</code></pre>
-                                </td>
+                    <ul class="nav nav-tabs" id="resultTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="markdown-tab" data-toggle="tab" href="#markdown" role="tab" aria-controls="home" aria-selected="true">Markdown output</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="html-preview-tab" data-toggle="tab" href="#html-preview" role="tab" aria-controls="profile" aria-selected="false">HTML preview</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="resultTabsContents">
+                        <div class="tab-pane fade show active" id="markdown" role="tabpanel" aria-labelledby="markdown-tab">
+                            <p></p>
+                            <div class="markdown-output">
+                                <pre class="pre-scrollable"><code id="markdownOutput">@s</code></pre>
+                                <p></p>
+                                <button onclick="copyToClipboard('markdownOutput')" class="btn btn-secondary btn-sm" type="button" id="copy-button" data-toggle="tooltip" data-placement="button">
+                                    Copy to clipboard
+                                </button>
+                            </div>
+                        </div>
 
-                                <td>
-                                @for(h <- mdHtml) {
-                                    <div class="markdown-body">
-                                    @Html(h)
-                                    </div>
-                                }
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                        <div class="tab-pane fade" id="html-preview" role="html-preview" aria-labelledby="html-preview-tab">
+                        @for(h <- mdHtml) {
+                            <p></p>
+                            <div class="markdown-body">
+                            @Html(h)
+                            </div>
+                        }
+                        </div>
+                    </div>
                 }
+
                 case Raml2MdFailure(f) => {
                     <p></p>
                     <div class="alert alert-danger" role="alert">
@@ -55,4 +62,5 @@
         }
     }
 
+    <p></p>
 }

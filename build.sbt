@@ -19,6 +19,7 @@ lazy val root = (project in file("."))
       "org.raml"               % "webapi-parser"       % "0.2.0",
       "com.kotcrab.remark"     % "remark"              % "1.0.0",
       "org.webjars"            % "bootstrap"           % "4.4.1",
+      "org.webjars"            % "jquery"              % "3.4.1",
       guice,
       ws
     )
