@@ -1,8 +1,3 @@
-name := "raml2md"
-organization := "peterhazell"
-
-version := "1.0-SNAPSHOT"
-
 resolvers += "MuleSoftReleases" at "https://repository.mulesoft.org/nexus/content/repositories/public/"
 
 lazy val root = (project in file("."))
