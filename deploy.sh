@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PRIVATE_KEY=~/petehazell.pem
-SERVICE_NAME=petehazell-raml2md
+SERVICE_NAME=raml2md
 SERVICE_VERSION=1.0-SNAPSHOT
 PROD_CONFIG=conf/prod.conf
 EC2=ubuntu@ec2-3-10-104-53.eu-west-2.compute.amazonaws.com

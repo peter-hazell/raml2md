@@ -1,4 +1,4 @@
-name := "petehazell-raml2md"
+name := "raml2md"
 organization := "peterhazell"
 
 version := "1.0-SNAPSHOT"
@@ -8,8 +8,8 @@ resolvers += "MuleSoftReleases" at "https://repository.mulesoft.org/nexus/conten
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
-    name := "petehazell-raml2md",
-    organization := "peterhazell",
+    name := "raml2md",
+    organization := "com.petehazell",
     version := "1.0-SNAPSHOT",
     scalaVersion := "2.12.6",
     PlayKeys.playDefaultPort := 9001,
